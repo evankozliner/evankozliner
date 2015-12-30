@@ -20,6 +20,12 @@ app.set('view engine', 'jade');
 // set aws region
 AWS.config.region = 'us-west-2';
 
+
+// Local dynamo db configuration
+AWS.config.update({
+  endpoint: "http://localhost:8000"
+});
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -40,10 +46,6 @@ if (app.get('env') === 'development') {
     });
   });
 	
-	// Local dynamo db configuration
-	AWS.config.update({
-	  endpoint: "http://localhost:8000"
-	});
 }
 
 app.use('/', routes);
