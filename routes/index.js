@@ -1,14 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var AWS = require('aws-sdk');
+var ddb = require('../database.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var db = new AWS.DynamoDB();
-	db.listTables(function(err, data) {
-	  console.log(data);
-  	res.render('index', { title: data });
-	});
+	ddb.getTables();
+  res.render('index', { title: "evankozliner" });
 });
 
 module.exports = router;
