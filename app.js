@@ -5,12 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
 
 // Set up AWS for dynamo-db
 var AWS = require('aws-sdk');
-
 var app = express();
 
 // view engine setup
@@ -27,6 +24,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Set up AWS for router access
+app.locals.AWS = AWS;
 
 // Development settings
 if (app.get('env') === 'development') {
@@ -45,11 +45,12 @@ if (app.get('env') === 'development') {
 	  endpoint: "http://localhost:8000"
 	});
 } else {
-	// Production settings
-	AWS.config.update({
-	  endpoint: "https://dynamodb.us-west-2.amazonaws.com"
-	});
+	console.log("starting production endpoint");
+	AWS.config.update({endpoint: "https://dynamodb.us-west-2.amazonaws.com"});
 }
+
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
 app.use('/', routes);
 app.use('/users', users);

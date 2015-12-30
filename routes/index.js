@@ -6,8 +6,8 @@ var AWS = require('aws-sdk');
 router.get('/', function(req, res, next) {
 	var db = new AWS.DynamoDB();
 	db.listTables(function(err, data) {
-	  console.log(data.TableNames);
-  	res.render('index', { title: data.TableNames });
+	  console.log(data);
+  	res.render('index', { title: data });
 	});
 });
 
