@@ -1,18 +1,9 @@
 var AWS = require('aws-sdk');
 var app = require('./app');
-// set aws region
-
-AWS.config.update({endpoint: "https://dynamodb.us-west-2.amazonaws.com", region: "us-west-2"});
-
-//if (app.get('env') === 'development') {
-//	// Local dynamo db configuration
-//	AWS.config.update({
-//	  endpoint: "http://localhost:8000"
-//	});
-//} else {
-//	// Production configuration
-//	AWS.config.update({endpoint: "https://dynamodb.us-west-2.amazonaws.com"});
-//}
+// Update region, use my dynamo database from aws
+AWS.config.update({
+	endpoint: "https://dynamodb.us-west-2.amazonaws.com", 
+	region: "us-west-2"});
 
 var db = new AWS.DynamoDB();
 
