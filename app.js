@@ -33,6 +33,7 @@ if (app.get('env') === 'development') {
   });
 } 
 
+// ~~~ routes ~~~
 var routes = require('./routes/index');
 var users = require('./routes/users');
 

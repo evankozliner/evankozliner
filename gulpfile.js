@@ -20,9 +20,15 @@ gulp.task('js', function() {
 		.pipe(connect.reload());
 });
 
-gulp.task('watch', function() {
-	gulp.watch('./public/javascripts/**/*.js', ['js']);
+gulp.task('jade', function() {
+	gulp.src('./views/*.jade')
+					.pipe(connect.reload());
 });
 
-gulp.task('default', ['js', 'connect', 'watch'], function() {
+gulp.task('watch', function() {
+	gulp.watch('./public/javascripts/**/*.js', ['js']);
+	gulp.watch('./views/**/*.jade', ['jade']);
+});
+
+gulp.task('default', ['js', 'jade', 'connect', 'watch'], function() {
 });
