@@ -7,9 +7,21 @@ AWS.config.update({
 
 var db = new AWS.DynamoDB();
 
-exports.getTables = function() {
-	db.listTables(function(err, data) {
+exports.getTables = () => {
+	db.listTables((err, data) => {
 		console.log(data)
 		return data
+	});
+}
+
+exports.getPosts = callback => {
+	db.scan({TableName: 'Posts'}, (err, data) => {
+		if (err) {
+			console.log(JSON.stringify(err, null, 2));
+		} else {
+			console.log(data);
+			callback();
+			console.log("done!");
+		}
 	});
 }

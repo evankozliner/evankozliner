@@ -7,10 +7,6 @@ var _person2 = _interopRequireDefault(_person);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var person = new _person2.default('Evan');
-
-console.log(person.sayHello());
-
 },{"./person":2}],2:[function(require,module,exports){
 "use strict";
 

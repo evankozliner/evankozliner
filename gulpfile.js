@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var exec = require('gulp-exec');
 var connect = require('gulp-connect');
 var browserify = require('browserify');
 var babelify = require('babelify');
@@ -28,7 +29,16 @@ gulp.task('jade', function() {
 gulp.task('watch', function() {
 	gulp.watch('./public/javascripts/**/*.js', ['js']);
 	gulp.watch('./views/**/*.jade', ['jade']);
+	//gulp.watch('./**/*.js', ['run_nodemon']);
 });
+
+//gulp.task('run_nodemon', function(cb) {
+//	exec('sudo nodemon --harmony app.js', function(err, stdout, stderr) {
+//		console.log(stdout);
+//		console.log(stderr);
+//		cb(err);
+//	});
+//});
 
 gulp.task('default', ['js', 'jade', 'connect', 'watch'], function() {
 });
