@@ -5,9 +5,21 @@ var _person = require('./person');
 
 var _person2 = _interopRequireDefault(_person);
 
+var _request = require('./request');
+
+var _request2 = _interopRequireDefault(_request);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./person":2}],2:[function(require,module,exports){
+// consider document.querySelector?
+document.getElementById("blog").onclick = function () {
+	var blogRequest = new _request2.default();
+	blogRequest.get('/posts').then(function (res) {
+		console.log(res);
+	});
+};
+
+},{"./person":2,"./request":3}],2:[function(require,module,exports){
 "use strict";
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -36,5 +48,49 @@ var Person = (function () {
 })();
 
 exports.default = Person;
+
+},{}],3:[function(require,module,exports){
+"use strict";
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Request = (function () {
+	// Try getting rid of this?
+
+	function Request() {
+		_classCallCheck(this, Request);
+	}
+
+	_createClass(Request, [{
+		key: "get",
+		value: function get(url) {
+			return new Promise(function (resolve, reject) {
+				var req = new XMLHttpRequest();
+				req.open('GET', url);
+				req.onload = function () {
+					if (req.status == 200) {
+						resolve(req.response);
+					} else {
+						reject(Error(req.statusText));
+					}
+				};
+				req.onerror = function () {
+					reject(Error("Network Error"));
+				};
+				req.send();
+			});
+		}
+	}]);
+
+	return Request;
+})();
+
+exports.default = Request;
 
 },{}]},{},[1]);

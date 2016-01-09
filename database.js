@@ -19,9 +19,7 @@ exports.getPosts = callback => {
 		if (err) {
 			console.log(JSON.stringify(err, null, 2));
 		} else {
-			console.log(data);
-			callback();
-			console.log("done!");
+			callback(data);
 		}
 	});
 }
