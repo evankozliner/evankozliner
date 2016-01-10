@@ -9,6 +9,7 @@ export default class Request {
 			req.open('GET', url)
 			req.onload = () => {
 				if (req.status == 200) {
+					console.log("200!")
 					resolve(req.response)
 				} else {
 					reject(Error(req.statusText))

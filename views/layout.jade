@@ -4,15 +4,16 @@ html
 		title= title
 		link(rel='stylesheet', href='/stylesheets/style.css')
 	body
-		ul.navlist
-			li
-				a#about(href='#') about
-			li
-				a#blog(href='#') blog
-			li
-				a#contact(href='#') contact
-			li
-				a#resume(href='#') resume
-		h1 Evan Kozliner
-		img(src="images/compressed-me.jpg")
+		.navArea
+			ul.navlist
+				li
+					a#about(href='#') about
+				li
+					a#blog(href='#') blog
+				li
+					a#contact(href='#') contact
+				li
+					a#resume(href='#') resume
+			h1.title Evan Kozliner
+			img.portrait(src="images/compressed-me.jpg")
 		block content

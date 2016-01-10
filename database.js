@@ -21,5 +21,23 @@ exports.getPosts = callback => {
 		} else {
 			callback(data);
 		}
-	});
+	})
 }
+
+exports.getAbout = callback => {
+	var params = {
+		TableName: 'Posts',
+		Key: {
+			name: {'S': 'About'}
+		},
+		ProjectionExpression: "body"
+	}
+	db.getItem(params, (err, data) => {
+		if (err) {
+			console.log(JSON.stringify(err, null, 2))
+		} else {
+			callback(JSON.stringify(data, null, 2))
+		}
+	})
+}
+
