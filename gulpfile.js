@@ -4,6 +4,7 @@ var connect = require('gulp-connect');
 var browserify = require('browserify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
+var sass = require('gulp-sass')
 
 gulp.task('connect', function() {
 	connect.server({
@@ -26,19 +27,18 @@ gulp.task('jade', function() {
 					.pipe(connect.reload());
 });
 
+gulp.task('sass', function() {
+	return gulp.src('./public/stylesheets/*.scss')
+				.pipe(sass())
+				.pipe(gulp.dest('./public/stylesheets/style.css'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch('./public/javascripts/**/*.js', ['js']);
 	gulp.watch('./views/**/*.jade', ['jade']);
-	//gulp.watch('./**/*.js', ['run_nodemon']);
+	gulp.watch('./public/stylesheets/*.scss', ['sass', 'jade']);
 });
 
-//gulp.task('run_nodemon', function(cb) {
-//	exec('sudo nodemon --harmony app.js', function(err, stdout, stderr) {
-//		console.log(stdout);
-//		console.log(stderr);
-//		cb(err);
-//	});
-//});
 
-gulp.task('default', ['js', 'jade', 'connect', 'watch'], function() {
+gulp.task('default', ['sass', 'js', 'jade', 'connect', 'watch'], function() {
 });

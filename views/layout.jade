@@ -1,11 +1,12 @@
 doctype html
 html
 	head
+		meta(name=viewport content='width=700')
 		title= title
-		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/style.css/style.css')
 	body
-		.navArea
-			ul.navlist
+		.nav-area.row
+			ul.nav-list
 				li
 					a#about(href='#') about
 				li
@@ -16,4 +17,6 @@ html
 					a#resume(href='#') resume
 			h1.title Evan Kozliner
 			img.portrait(src="images/compressed-me.jpg")
-		block content
+		.content
+			block content
+	.footer
