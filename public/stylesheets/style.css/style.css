@@ -1,29 +1,20 @@
 body, html {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  width: 100%;
-  max-width: 700px;
-  margin: auto; }
+  width: 100%; }
+
+.nav-list {
+  height: 100%;
+  float: left;
+  clear: both; }
+
+.content {
+  margin: auto;
+  max-width: 50%; }
 
 .portrait {
   max-width: 300px; }
-
-*, *:after, *:before {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizeing: border-box;
-  box-sizing: border-box; }
 
 img {
   width: auto;
   max-width: 100%;
   height: auto !important; }
-
-.wrapper {
-  width: 100%;
-  margin: 0 auto; }
-
-.wrapper:after, .row:after {
-  content: "";
-  display: table;
-  clear: both; }

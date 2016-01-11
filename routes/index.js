@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var ddb = require('../database');
+var Showdown = require('showdown');
 
 router.get('/', (req, res, next) => {
 	ddb.getAbout( aboutData => {
 		res.render('index', {title: 'evankozliner', 
-			aboutData: JSON.parse(aboutData).Item.body.S})
+			aboutData: parse(JSON.parse(aboutData).Item.body.S)})
 	})
 })
 
@@ -17,8 +18,13 @@ router.get('/posts', (req, res, next) => {
 
 router.get('/about', (req, res, next) => {
 	ddb.getAbout( aboutData => {
-		res.json({data: aboutData})
+		res.json({data: parse(aboutData)})
 	})
 })
+
+function parse(markdown) {
+	var converter = new Showdown.Converter()
+	return converter.makeHtml(markdown)
+}
 
 module.exports = router

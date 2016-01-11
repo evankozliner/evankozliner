@@ -1,71 +1,23 @@
 body, html {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	width: 100%;
-	max-width: 700px;
+}
+.nav-list {
+	height: 100%;
+	float: left;
+	clear: both;
+}
+.title-group {
+}
+.content {
 	margin: auto;
+	max-width: 50%;
 }
 .portrait {
 	max-width: 300px;
 } 
-*, *:after, *:before {
-	margin: 0;
-	padding: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizeing: border-box;
-	box-sizing: border-box;
-}
-
 img {
 	width: auto;
 	max-width: 100%;
 	height: auto !important;
-}
-.wrapper {
-	width: 100%;
-	margin: 0 auto;
-}
-.wrapper:after, .row:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-/* Take any element whose class contains column and apply these styles */
-[class *='column-'] {
-	float: left;
-	padding: 1em;
-	width: 100%;
-	min-height: 1px;
-}
-
-/*Media Queries*/
-@media only screen and (min-width: 30em) {
-	.wrapper {
-		width: 95%;
-		max-width: 65em;
-	}
-	.column-1 {
-		width: 8.333%;
-	}
-	.column-2 {
-		width: 16.6667%;
-	}
-	.column-4 {
-	}
-	.column-5 {
-
-	}
-	.column-6 {
-	}
-	.column-7 {
-	}
-	.column-8 {
-	}
-	.column-9 {
-	}
-	.column-10 {
-	}
-	.column-11 {
-	}
-	.column-12 {
-	}
 }

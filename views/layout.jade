@@ -5,7 +5,7 @@ html
 		title= title
 		link(rel='stylesheet', href='/stylesheets/style.css/style.css')
 	body
-		.nav-area.row
+		.content
 			ul.nav-list
 				li
 					a#about(href='#') about
@@ -15,8 +15,8 @@ html
 					a#contact(href='#') contact
 				li
 					a#resume(href='#') resume
-			h1.title Evan Kozliner
-			img.portrait(src="images/compressed-me.jpg")
-		.content
+			.content.title-group
+				h1.title Evan Kozliner
+				img.portrait(src="images/compressed-me.jpg")
 			block content
 	.footer
