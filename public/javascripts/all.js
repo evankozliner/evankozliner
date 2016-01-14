@@ -11,14 +11,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 document.getElementById("blog").onclick = function () {
 	var blogRequest = new _request2.default();
 	blogRequest.get('/posts').then(function (res) {
-		console.log(res);
+		document.getElementById('blogContent').style.display = 'block';
+		var listItems = document.getElementById('blogContent').children;
+		var postData = JSON.parse(res).posts.Items;
+		postData.forEach(function (e, i) {
+			var anchor = listItems[i].children[0];
+			console.log(listItems[i].children[0]);
+			listItems[i].style.display = 'block';
+			anchor.textContent = e['name']['S'];
+		});
+		document.getElementById('aboutContent').style.display = 'none';
 	});
 };
 
 document.getElementById("about").onclick = function () {
 	var aboutRequest = new _request2.default();
 	aboutRequest.get('/about').then(function (res) {
-		console.log(res);
+		document.getElementById('aboutContent').style.display = 'block';
+		document.getElementById('blogContent').style.display = 'none';
 	});
 };
 
