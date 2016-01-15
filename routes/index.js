@@ -15,6 +15,14 @@ router.get('/posts', (req, res, next) => {
 		res.json({posts: posts})
 	})
 })
+// TODO Refactor /about to use this method
+// TODO Clean the post data *before* bassing it to the front end
+router.get('/posts/:postId', (req, res, next) => {
+	ddb.getSinglePost(req.params.postId.replace(/_/g, " "), post => {
+		console.log(post)
+		res.json({post: parse(post)})
+	})
+})
 
 router.get('/about', (req, res, next) => {
 	ddb.getAbout( aboutData => {

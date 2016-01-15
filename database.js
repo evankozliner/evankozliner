@@ -24,6 +24,26 @@ exports.getPosts = callback => {
 	})
 }
 
+exports.getSinglePost = (postId, callback) => {
+	console.log("Getting single post " + postId)
+	var params = {
+		TableName: 'Posts',
+		Key: {
+			name: {'S': postId}
+		},
+		ProjectionExpression: "body"
+	}
+	db.getItem(params, (err, data) => {
+		if (err) {
+			console.log(JSON.stringify(err, null, 2))
+		} else {
+			console.log("no err")
+			console.log(data)
+			callback(JSON.stringify(data, null, 2))
+		}
+	})
+}
+
 exports.getAbout = callback => {
 	var params = {
 		TableName: 'Posts',

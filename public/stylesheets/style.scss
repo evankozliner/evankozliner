@@ -1,3 +1,15 @@
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+#about, #blog, #contact, #resume {
+	font-size: 20px;
+}
 body, html {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	width: 100%;
@@ -24,4 +36,14 @@ img {
 .hidden-li {
 	display: none;
 }
-
+@media (max-width: 960px) {
+	.content {
+		max-width: 75%;
+	}
+}
+@media(max-width: 1000px) {
+	#about, #blog, #contact, #resume {
+		font-size: 1em;
+		margin-right: 20px;
+	}
+}
