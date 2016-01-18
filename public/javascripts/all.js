@@ -7,52 +7,6 @@ var _request2 = _interopRequireDefault(_request);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// consider document.querySelector?
-document.getElementById("blog").onclick = function (e) {
-	e.preventDefault();
-	var blogRequest = new _request2.default();
-	blogRequest.get('/posts').then(function (res) {
-		document.getElementById('blogContent').style.display = 'block';
-		var listItems = document.getElementById('blogContent').children;
-		var postData = JSON.parse(res).posts.Items;
-		postData.forEach(function (e, i) {
-			var anchor = listItems[i].children[0];
-			console.log(listItems[i].children[0]);
-			listItems[i].style.display = 'block';
-			anchor.textContent = e['name']['S'];
-			anchor.addEventListener("click", function (e) {
-				loadPost(anchor, e);
-			});
-		});
-		document.getElementById('aboutContent').style.display = 'none';
-	});
-};
-/*document.getElementsByClassName("hidden-li").onlick = (e) => {
-	console.log(e)
-	e.preventDefault()
-	console.log('hi')
-	console.log(this)
-}*/
-
-document.getElementById("about").onclick = function (e) {
-	e.preventDefault();
-	var aboutRequest = new _request2.default();
-	aboutRequest.get('/about').then(function (res) {
-		document.getElementById('aboutContent').style.display = 'block';
-		document.getElementById('blogContent').style.display = 'none';
-	});
-};
-
-var loadPost = function loadPost(anchor, e) {
-	e.preventDefault();
-	console.log("hi");
-	console.log(anchor);
-	var blogRequest = new _request2.default();
-	blogRequest.get("/posts/" + anchor.text.replace(/ /g, "_")).then(function (res) {
-		console.log(res);
-	});
-};
-
 },{"./request":2}],2:[function(require,module,exports){
 "use strict";
 

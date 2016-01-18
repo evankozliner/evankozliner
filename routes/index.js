@@ -4,7 +4,7 @@ var ddb = require('../database');
 var Showdown = require('showdown');
 
 router.get('/', (req, res, next) => {
-	ddb.getAbout( aboutData => {
+	ddb.getSinglePost('About', aboutData => {
 		res.render('index', {title: 'evankozliner', 
 			aboutData: parse(JSON.parse(aboutData).Item.body.S)})
 	})
@@ -12,15 +12,21 @@ router.get('/', (req, res, next) => {
 
 router.get('/posts', (req, res, next) => {
 	ddb.getPosts( posts => {
-		res.json({posts: posts})
+		res.render('posts', {posts: posts})
 	})
+})
+router.get('/download', (req, res, next) => {
+	var file = __dirname + '/../junior_resume.pdf'
+	res.download(file)
 })
 // TODO Refactor /about to use this method
 // TODO Clean the post data *before* bassing it to the front end
 router.get('/posts/:postId', (req, res, next) => {
-	ddb.getSinglePost(req.params.postId.replace(/_/g, " "), post => {
-		console.log(post)
-		res.json({post: parse(post)})
+	var titleKey = req.params.postId.replace(/_/g, " ")
+	ddb.getSinglePost(titleKey, post => {
+		res.render('single', {parsedBody: parse(JSON.parse(post).Item.body.S),
+			title: titleKey	
+		})
 	})
 })
 

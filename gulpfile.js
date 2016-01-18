@@ -5,6 +5,7 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var sass = require('gulp-sass')
+// TODO uglify and minify css
 
 gulp.task('connect', function() {
 	connect.server({
