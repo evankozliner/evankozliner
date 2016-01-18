@@ -18,7 +18,7 @@ a, a#visited {
 	text-decoration: none;
 	color: #76C4FF;
 }
-li {
+.nav-list > li {
 	list-style: none;
 }
 #about, #blog, #contact, #resume {
@@ -53,10 +53,11 @@ img {
 	max-width: 100%;
 	height: auto !important;
 }
-.hidden-li {
-	display: none;
-}
 p {
+	line-height: 1.6;
+}
+.top-border {
+	border-left-style: solid;
 }
 @media (max-width: 960px) {
 	.content {
@@ -65,7 +66,6 @@ p {
 }
 @media(max-width: 1000px) {
 	#about, #blog, #contact, #resume {
-		font-size: 1em;
-		margin-right: 20px;
+		font-size: 1.1em;
 	}
 }
