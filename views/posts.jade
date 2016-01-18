@@ -2,5 +2,7 @@ extends layout
 block content
 	each post in posts.Items
 		article
-			h3= post.name.S
+			- name = post.name.S
+			a(href= name)
+				h3= name
 

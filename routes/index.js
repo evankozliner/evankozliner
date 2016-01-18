@@ -9,7 +9,6 @@ router.get('/', (req, res, next) => {
 			aboutData: parse(JSON.parse(aboutData).Item.body.S)})
 	})
 })
-
 router.get('/posts', (req, res, next) => {
 	ddb.getPosts( posts => {
 		res.render('posts', {posts: posts})
