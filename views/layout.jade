@@ -7,17 +7,18 @@ html
 		link(href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css')
 	body
 		.content
-			ul.nav-list
-				li
-					a#about(href='/posts/About') about
-				li
-					a#blog(href='/posts/') blog
-				li
-					a#contact(href='/posts/Contact') contact
-				li
-					a#resume(href="/download") resume
-			.content.title-group
-				h1.title Evan Kozliner
-				img.portrait(src="/images/compressed-me.jpg")
+			.class
+				ul.nav-list
+					li
+						a#about(href='/posts/About') about
+					li
+						a#blog(href='/posts/') blog
+					li
+						a#contact(href='/posts/Contact') contact
+					li
+						a#resume(href="/download") resume
+				.post-content.title-group
+					h1.title Evan Kozliner
+					img.portrait(src="/images/compressed-me.jpg")
 			block content
 	.footer

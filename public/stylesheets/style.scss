@@ -1,8 +1,22 @@
-a:link {
+#about, #about:visited {
+	color: #76C4FF;
 	text-decoration: none;
 }
-a:visited {
+#blog, #blog:visited {
+	color: #44916C;
 	text-decoration: none;
+}
+#contact, #contact:visited {
+	color: #F90A5C;
+	text-decoration: none; 
+}
+#resume, #resume:visited {
+	color: #F8C522;
+	text-decoration: none; 
+}
+a, a#visited {
+	text-decoration: none;
+	color: #76C4FF;
 }
 li {
 	list-style: none;
@@ -12,8 +26,8 @@ li {
 }
 body, html {
 	font-family: 'Open Sans', "Lucida Grande", Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	width: 100%;
+	font-size: 17px;
+	/*width: 100%; */
 }
 .blog-content {
 	text-align: center
@@ -23,8 +37,6 @@ body, html {
 	float: left;
 	clear: both;
 }
-.title-group {
-}
 .content {
 	margin: auto;
 	max-width: 50%;
@@ -32,6 +44,10 @@ body, html {
 .portrait {
 	max-width: 300px;
 } 
+.post-content {
+	margin: auto;
+	max-width: 50%;
+}
 img {
 	width: auto;
 	max-width: 100%;
@@ -39,6 +55,8 @@ img {
 }
 .hidden-li {
 	display: none;
+}
+p {
 }
 @media (max-width: 960px) {
 	.content {
