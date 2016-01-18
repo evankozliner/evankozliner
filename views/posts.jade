@@ -1,8 +1,9 @@
 extends layout
 block content
-	each post in posts.Items
-		article
-			- name = post.name.S
-			a(href= name)
-				h3= name
+	.blog-content
+		each post in posts.Items
+			article
+				- name = post.name.S
+				a(href= name)
+					h3= name
 
