@@ -1,7 +1,7 @@
 extends layout
 block content
 	.blog-content
-		each post in posts.Items
+		each post in posts
 			article
 				- name = post.name.S
 				a(href= name)

@@ -6,12 +6,16 @@ var Showdown = require('showdown');
 router.get('/', (req, res, next) => {
 	ddb.getSinglePost('About', aboutData => {
 		res.render('index', {title: 'evankozliner', 
-			aboutData: parse(JSON.parse(aboutData).Item.body.S)})
+			aboutData: parse(JSON.parse(aboutData).Item.body.S),
+			})
 	})
 })
 router.get('/posts', (req, res, next) => {
 	ddb.getPosts( posts => {
-		res.render('posts', {posts: posts})
+		var blogPosts = posts.Items.filter( post => {
+				return post.blog.B 
+		})
+		res.render('posts', {posts: blogPosts})
 	})
 })
 router.get('/download', (req, res, next) => {
