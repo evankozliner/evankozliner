@@ -1,9 +1,10 @@
 extends layout
 block content
-	.blog-content
+	ul.blog-content
 		each post in posts
-			article
+			.post-group
 				- name = post.name.S
-				a(href= name)
+				- date = post.date.S
+				h3.date= date
+				a.postName(href= name)
 					h3= name
-

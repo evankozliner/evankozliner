@@ -30,7 +30,7 @@ body, html {
 	/*width: 100%; */
 }
 .blog-content {
-	text-align: center
+	//text-align: center
 }
 .nav-list {
 	height: 100%;
@@ -58,6 +58,13 @@ p {
 }
 .top-border {
 	border-left-style: solid;
+}
+.postName, .date {
+    display: inline-block;
+    margin-left: 5px;
+}
+.date {
+    width: 20%;
 }
 @media (max-width: 960px) {
 	.content {
